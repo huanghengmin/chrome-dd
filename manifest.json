@@ -1,0 +1,21 @@
+{	
+	"name": "哆哆自动回复",
+	"version": "1.1",
+	"description": "拼多多客服自动回复！",
+	"permissions": ["tabs","cookies","storage","notifications","webRequest","webRequestBlocking","*://*/*"],
+	"browser_action": {
+		"default_title":"提示",
+		"default_icon": {
+			"40":"icon.png"
+		},
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+        {
+            "matches": ["*://*/assets/chats/dist/indexMain.html*"],
+            "js": ["1.js"],
+			"run_at": "document_end"
+        }
+    ],
+	"manifest_version":2
+}

@@ -1,0 +1,12 @@
+document.getElementById('home_btn').onclick=function(){
+	chrome.tabs.create({url:"http://www.duoduo168.top"});
+};
+document.getElementById('contact_btn').onclick=function(){
+	chrome.tabs.create({url:"http://wpa.qq.com/msgrd?v=3&uin=1248807377&site=qq&menu=yes"});
+};
+document.getElementById('chats_btn').onclick=function(){
+	chrome.tabs.create({url:"http://mms.pinduoduo.com/assets/chats/dist/indexMain.html#/chats/-999"});
+};
+document.getElementById('number_btn').onclick=function(){
+	chrome.tabs.create({url:"http://t.cn/RcrWxV3"});
+};
