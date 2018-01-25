@@ -1,39 +1,356 @@
 <!DOCTYPE html>
-<html style="height:358px">
+<html lang="en">
 <head>
-	<title>哆哆自动回复</title>
-	<meta charset="utf-8"></meta>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>拼多多插件</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/light7.min.css">
+    <style>
+        .wrapper {
+            width: 320px;
+            height: 600px;
+            border: none;
+            background-color: #2D539F;
+        }
+
+        .wrapper .container {
+            width: 320px;
+            margin: 0 auto;
+            height: 170px;
+        }
+
+        .wrapper .container .logo {
+            width: 100%;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        /*.list-block ul {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            background: #fff;
+            !* border-top: 1px solid #e7e7e7; *!
+            !* border-bottom: 0.5px solid #e7e7e7; *!
+            margin-left: 25px;
+        }
+
+        .list-block ul {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            background: #fff;
+            !* margin-left: 25px; *!
+            !* border-top: 1px solid #e7e7e7; *!
+            !* border-bottom: 1px solid #e7e7e7; *!
+        }*/
+
+        a {
+            color: white;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .list-block {
+            margin: 0.25rem 0;
+            font-size: .85rem;
+        }
+
+        .list-block ul {
+            /* position: relative; */
+            /* padding: 0; */
+            margin: 0;
+            list-style: none;
+            background: #fff;
+            /* border-top: 1px solid #e7e7e7; */
+            /* border-bottom: 1px solid #e7e7e7; */
+        }
+
+        /*ul li a {
+            text-decoration: none;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 37%;
+            display: inline-block;
+            padding-left: 30px;
+        }*/
+
+
+        body {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            /*font-family: Microsoft YaHei;*/
+            /* font-size: .85rem; */
+            /* line-height: 1.5; */
+            /*color: #3d4145;*/
+            /*background: #eee;*/
+            position:static;
+            text-align: center;
+            margin:auto;
+            color: white;
+            background-color: #2D539F;
+        }
+
+        /*.wrapper .container .logo img {
+            background-size: cover;
+            !*height: 94px;*!
+            width: 47%;
+        }*/
+
+        /*.wrapper .container .username {
+            padding: 13px 0px 10px 0px;
+            color: #fff;
+            font-size: 16px;
+            font-family: '微软雅黑';
+            text-align: center;
+        }*/
+
+        /*中间的部分*/
+        /*  .center{
+              margin-top: 20px;
+              height: 170px;
+              border-bottom: 2px solid rgba(255,255,255,0.3);
+          }
+          .center ul{
+              list-style: none;
+              color: #fff;
+          }
+          .center ul li{
+              float: left;
+              width: 100%;
+          }
+          .center ul li a{
+              text-decoration: none;
+              color: #fff;
+              height: 40px;
+              line-height: 40px;
+              font-size: 16px;
+              cursor: pointer;
+              width: 37%;
+              display: inline-block;
+              padding-left: 30px;
+          }
+          .center ul li span{
+              font-size: 16px;
+          }
+          .center ul li img{
+              height: 20px;
+              width: 20px;
+              margin-bottom: -6px;
+              display: inline-block;
+          }*/
+        /*客服中心*/
+        .service {
+            height: 100px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .service ul li {
+            float: left;
+            list-style: none;
+            width: 72px;
+        }
+
+        .service ul li a {
+            text-decoration: none;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        .service ul li a img {
+            display: block;
+            margin: 5px auto;
+            margin-bottom: 10px;
+        }
+
+       /* .service .btn {
+            margin-top: 25px;
+            border: 0;
+            outline: none;
+            color: #2D539F;
+            background: #fff;
+            height: 40px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 20px;
+            font-size: 16px;
+        }*/
+
+        /*版权*/
+        .bottom {
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: yellow;
+        }
+
+        .bottom .connection {
+            margin-top: 15px;
+            color: #fff;
+        }
+
+        .bottom .connection img {
+            margin: 0px 10px;
+            margin-bottom: -2px;
+        }
+    </style>
 </head>
-<body style="width:300px;margin:0">
-	<img src="logo.png"></img>
-	<div style="position: fixed;height:100%;width:100%">
-		<button id="home_btn">哆哆官网</button>
-		<button id="contact_btn">联系客服</button>
-		<button id="chats_btn">客服中心</button>
-		<button id="number_btn">单号网(低至0.3)</button>
-	</div>
+
+<body>
+<!--<body>-->
+<div class="wrapper">
+    <div class="container">
+        <!-- logo区域 -->
+        <div class="top">
+            <div class="logo">
+                <img src="120.png" alt="拼多多插件">
+            </div>
+        </div>
+        <div class="list-block">
+            <div align="center">
+                <!--<img src="120.png" style="margin: auto;" alt="拼多多插件">-->
+                <div style="width:100%;text-align: center;background-color: #2D539F;font-size:1.0rem" class="sj">
+                    ****
+                </div>
+                <!-- 中间的部分 -->
+                <div class="list-block" style="margin-left: 25px;margin-right: 25px;border-bottom: 0.5px solid #e7e7e7;border-top: 1px solid #e7e7e7; ">
+                    <ul id="gw" class="item-content connection" style="background-color: #2D539F;">
+                        <li><div class="item-media"><img src="image/2.png" alt=""><a style="padding-left: 10px;" href="#">官方地址</a></div></li>
+                    </ul>
+                    <ul id="ddgz" class="item-content connection" style="background-color: #2D539F;">
+                        <div class="item-media"><img src="image/1.png" alt=""><a style="padding-left: 10px;" href="#">到期时间</a></div>
+                        <div class="item-content expiration_date" style="margin-right: 25px;">***</div>
+                    </ul>
+                    <ul id="xf" class="item-content connection" style="background-color: #2D539F;">
+                        <li><div class="item-media"><img src="image/4.png" alt=""><a style="padding-left: 10px;" href="#">去购买</a></div></li>
+                    </ul>
+                    <ul id="bd" class="item-content connection" style="background-color: #2D539F;">
+                        <li><div class="item-media"><img src="image/3.png" alt=""><a style="padding-left: 10px;" href="#">去充值</a></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="top">
+            <div class="logo">
+                <img src="image/logo.png" alt="拼多多插件">
+                <div style="width:100%;text-align: center;padding-top: 1rem;color: white;font-size:1.0rem" class="sj">****</div>
+            </div>
+        </div>-->
+        <!-- 中间的部分 -->
+        <!-- <div class="center">
+             <ul>
+                 <li id="gw"><img src="image/2.png" alt=""><a href="#">官方地址</a></li>
+                 <li  id="ddgz"><img src="image/1.png" alt=""><a href="#" >到期时间</a>  <span class="item-after expiration_date">***</span></li>
+                 <li id="xf"><img src="image/4.png" alt=""><a href="#">去购买</a></li>
+                 <li id="bd"><img src="image/3.png" alt=""><a href="#">去充值</a></li>
+             </ul>
+         </div>-->
+
+
+        <!-- 客服页面 个人中心-->
+        <div class="service">
+            <ul>
+                <li id="kefu">
+                    <a href="#">
+                        <img src="image/service.png" alt="" height="28" width="30">
+                        <span style="font-size: 13px;">客服中心</span>
+                    </a>
+
+
+                </li>
+                <li id="center">
+                    <a href="#">
+                        <img src="image/center.png" alt="" height="28" width="30">
+                        <span style="font-size: 12px;">个人中心</span>
+                    </a>
+                </li>
+                <li id="guanli">
+                    <a href="#">
+                        <img src="image/background.png" alt="" height="28" width="30">
+                        <span style="font-size: 12px;">后台管理</span>
+                    </a>
+                </li>
+                <li id="fakuan">
+                    <a href="#">
+                        <img src="image/fakuan.png" alt="" height="28" width="30">
+                        <span style="font-size: 12px;">多多防罚款</span>
+                    </a>
+                </li>
+                <li id="shuadan">
+                    <a href="#">
+                        <img src="image/shuadan.png" alt="" height="28" width="30">
+                        <span style="font-size: 12px;">刷单大厅</span>
+                    </a>
+                </li>
+                <li id="loginout">
+                    <a href="#">
+                        <img src="image/out.png" alt="" height="28" width="30">
+                        <span style="font-size: 12px;">退出绑定</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div align="center" class="bottom">
+            <p>版权所有，盗版必究</p>
+            <p class="connection"><img src="image/connect.png" alt="">联系客服 QQ：<a
+                    href="http://wpa.qq.com/ms&uin=15107847&site=qq&menu=yes">15107847</a></p>
+        </div>
+
+        <!--<nav class="bar bar-tab" style="background-color: #2D539F;">
+
+            <a class="tab-item" href="javascript:;" id="kefu">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">客服中心</span>
+
+            </a>
+            <a class="tab-item active" href="javascript:;" id="center">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">个人中心</span>
+            </a>
+            <a class="tab-item" href="javascript:;" id="guanli">
+                <span class="icon icon-gift"></span>
+                <span class="tab-label">后台管理</span>
+            </a>
+
+            <a class="tab-item" href="javascript:;" id="fakuan">
+                <span class="icon icon-gift"></span>
+                <span class="tab-label">防罚款</span>
+            </a>
+
+            <a class="tab-item" href="javascript:;" id="shuadan">
+                <span class="icon icon-gift"></span>
+                <span class="tab-label">刷单大厅</span>
+            </a>
+
+            <a class="tab-item" href="javascript:;" id="loginout">
+                <span class="icon icon-gift"></span>
+                <span class="tab-label">退出绑定</span>
+            </a>
+        </nav>-->
+    </div>
+</div>
+<script type='text/javascript' src='jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/light7.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/popup.js' charset='utf-8'></script>
+
 </body>
-	<style>
-		button{
-			display:block;
-			width:100%;
-			height:52px;
-			margin-bottom:5px;
-			line-height:52px;
-			text-align:center;
-			font-weight:bold;
-			font-size:22px;
-			background:#7BAAFF;color:#fff;
-			text-decoration:none;
-			border: 3px solid #357ebd;
-			cursor:pointer
-		}
-		button:hover{
-			background:#1165ae;
-		}
-		button:active{
-			background:#0d79d5;
-		}
-	</style>
-	<script src="popup.js" type="text/javascript"></script>
 </html>

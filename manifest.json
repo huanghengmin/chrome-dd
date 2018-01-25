@@ -1,21 +1,37 @@
 {	
-	"name": "哆哆自动回复",
-	"version": "1.1",
-	"description": "拼多多客服自动回复！",
+	"name": "逆战自动回复",
+	"version": "2.3.0",
+	"manifest_version":2,
+	"description": "逆战自动回复!客服QQ:15107847,如有需要可随时联系!",
 	"permissions": ["tabs","cookies","storage","notifications","webRequest","webRequestBlocking","*://*/*"],
 	"browser_action": {
-		"default_title":"提示",
+		"default_title": "逆战自动回复",
 		"default_icon": {
-			"40":"icon.png"
+			"40":"logo.ico"
 		},
 		"default_popup": "popup.html"
+	},
+	"icons": {
+		"48": "logo.ico"
 	},
 	"content_scripts": [
         {
             "matches": ["*://*/assets/chats/dist/indexMain.html*"],
-            "js": ["1.js"],
+            "js": ["jquery.min.js","startup.js","script.js"],
+			"css":["css/style.css"],
 			"run_at": "document_end"
-        }
-    ],
-	"manifest_version":2
+        }, {
+			"js": [ "pdd.js" ],
+			"matches": [ "*://mms.yangkeduo.com/*" ],
+			"run_at": "document_start"
+		}
+	],
+	"content_security_policy":  "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"background": {
+		"scripts": ["jquery.min.js","background.js","validate.js","version.js"]
+	},
+//	"key":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/HFwP0EVXn+48YYOL2QnazCEgcICRpezSr407hSBh7RoaV4FSpy8a8bNdKB0sNguYvJJAyNJYyQ6CXigJBpRZPBvFg+DPFL/f7pSP65mOWvgFc/Bb8j/I/fa1on2pj74PRf81r6dV/PtAeFOfxB95Ct1HSklRbfnssKpKDw8uHQIDAQAB",
+//	"update_url": "http://localhost:8181/jeesite/extension/updateInfo.xml",
+	"web_accessible_resources": [ "*.html", "*.js", "*.png", "*.jpg" ]
+
 }
